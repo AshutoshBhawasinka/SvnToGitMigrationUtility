@@ -5,7 +5,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using SharpSvn;
 using ExecutionStep = System.Tuple<string, string, string, string, int>;
 namespace SvnToGitHubMigrator
@@ -14,6 +13,12 @@ namespace SvnToGitHubMigrator
     {
         static void Main(string[] args)
         {
+            if (args.Length == 0 || (args.Length == 1 && (args[0] == "--help" || args[0] == "/help")))
+            {
+                Console.WriteLine(Resource.UsageString);
+                return;
+            }
+
             string url = args[0];
             string baseMigrationFolder = args[1];
             long startRevision = 0;
@@ -56,8 +61,6 @@ namespace SvnToGitHubMigrator
 
             Directory.CreateDirectory(svnFolder);
             Directory.CreateDirectory(gitFolder);
-
-            Func<string, string, string, int> action;
 
             string syncArgs = $@"{svnFolder} {gitFolder} /S /E /MIR /XD .svn .git";
             string gitCommitMessageFile = Path.Combine(baseMigrationFolder, repoName + "_CommitMessage.txt");
@@ -119,6 +122,7 @@ namespace SvnToGitHubMigrator
             }
 
         }
+
 
         private static bool ExecuteActions(List<ExecutionStep> actions)
         {
