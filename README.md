@@ -3,7 +3,7 @@ Migrates data from SVN for any given path to a Git Repository maintaining commit
 Copyright: Ashutosh Bhawasinka(2000-2022)
 
 Usage:
-SvnToGitHubMigrator.exe <SvnUrl> <WorkingDirectory> [<StartSvnRevision>]
+SvnToGitHubMigrator.exe <<SvnUrl>> <<WorkingDirectory>> [<<StartSvnRevision>>]
 
 where:
 
