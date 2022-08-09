@@ -1,0 +1,5 @@
+/packages
+/.vs
+/SvnToGitHubMigrator/obj
+/SvnToGitHubMigrator/bin
+*.user
