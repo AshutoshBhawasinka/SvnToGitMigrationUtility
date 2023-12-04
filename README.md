@@ -18,3 +18,4 @@ $StartSvnRevision  : Specifies the starting svn revision at which to start.
                     Revisions prior to this will be skipped. When not specified,
                     all revisions are migrated
 
+**WARNNING** This tool changes the system time. So, better run it on a dedicated VM
